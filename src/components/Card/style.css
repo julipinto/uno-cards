@@ -1,3 +1,18 @@
+:root {
+  --mx: 50%;
+  --my: 50%;
+  --s: 1;
+  --o: 0;
+  --tx: 0px;
+  --ty: 0px;
+  --rx: 0deg;
+  --ry: 0deg;
+  --pos: 50% 50%;
+  --posx: 50%;
+  --posy: 50%;
+  --hyp: 0;
+}
+
 .card {
   width: 200px;
   height: 300px;
@@ -23,3 +38,12 @@
 .bot_sym {
   transform: rotate(180deg);
 }
+
+/*  The cards use 3d transforms, filters, blend modes, css gradients and interactions to provide a unique experience when taking a closer look! */
+
+.card {
+  transform-style: preserve-3d;
+  -webkit-tap-highlight-color: rgba(#000, 0);
+  box-shadow: 0 2px 8px rgba(14, 21, 47, 0.25);
+}
+/*  */

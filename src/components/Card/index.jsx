@@ -1,16 +1,24 @@
+import { useSpring, animated, to } from 'react-spring';
 import './style.css';
 import Circle from '../../assets/circle.svg';
 import Four from '../../assets/fourcards.svg';
 import Two from '../../assets/twocards.svg';
 import Arrows from '../../assets/arrows.svg';
 
+const calc = (x, y) => [
+  -(y - window.innerHeight / 2) / 20,
+  (x - window.innerWidth / 2) / 20,
+  1.1,
+];
+
+const trans = (x, y, s) =>
+  `perspective(1000px) rotateX(${x}deg) rotateY(${y}deg) scale(${s})`;
+
 function symbol(symbol) {
   return function () {
     return symbol;
   };
 }
-
-// ⦸
 
 const specialCards = {
   back: {
@@ -47,18 +55,33 @@ function number(num) {
 }
 
 function Card() {
+  const [props, set] = useSpring(
+    () => ({
+      xys: [0, 0, 1],
+      config: { mass: 5, tension: 200, friction: 100 },
+    }),
+    []
+  );
+
   const id = 'reverse';
   const card = specialCards[id] || number(id);
 
+  const style = {
+    transform: to(props.xys, trans),
+    ...(card.color && { backgroundColor: `var(${card.color})` }),
+  };
+
   return (
-    <div
+    <animated.div
       className="card"
-      style={card.color && { backgroundColor: `var(${card.color})` }}
+      onMouseMove={({ clientX: x, clientY: y }) => set({ xys: calc(x, y) })}
+      onMouseLeave={() => set({ xys: [0, 0, 1] })}
+      style={style}
     >
       <span className="top_sym">{card.top_bot_sym && card.top_bot_sym()}</span>
       <span className="mid_sym">{card.mid_sym && card.mid_sym()}</span>
       <span className="bot_sym">{card.top_bot_sym && card.top_bot_sym()}</span>
-    </div>
+    </animated.div>
   );
 }
 
