@@ -1,0 +1,25 @@
+.card {
+  width: 200px;
+  height: 300px;
+  border-radius: 10px;
+  padding: 0.5rem 1rem;
+  /* background-color: #d92211; */
+  background-color: #d92211;
+
+  display: grid;
+  grid-template-rows: 1fr 3fr 1fr;
+}
+
+.top_sym,
+.bot_sym {
+  font-size: 2rem;
+}
+
+.mid_sym {
+  font-size: 4rem;
+  place-self: center;
+}
+
+.bot_sym {
+  transform: rotate(180deg);
+}

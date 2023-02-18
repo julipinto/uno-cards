@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Lexend&family=Quicksand&display=swap');
+
+:root {
+  all: unset;
+
+  --blue: #0960a8;
+  --green: #77b910;
+  --yellow: #fecc28;
+  --red: #d92211;
+  --black: #0c0c0c;
+
+  font-family: 'Inter', sans-serif;
+  font-family: 'Lexend', sans-serif;
+  font-family: 'Quicksand', sans-serif;
+
+  line-height: 1.5;
+  font-weight: 400;
+
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+}
