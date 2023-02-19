@@ -1,9 +1,8 @@
 .card {
-  width: 200px;
   height: 300px;
+  aspect-ratio: 2/3;
   border-radius: 10px;
   padding: 0.5rem 1rem;
-  /* background-color: #d92211; */
   background-color: var(--card-color);
 
   display: grid;
@@ -11,7 +10,14 @@
   grid-template-rows: 1fr 3fr 1fr;
   z-index: 1;
   -webkit-box-shadow: 0 1px 1px #8b8b8b;
-  background-position: center center;
+  box-shadow: 0px 10px 30px -5px rgba(0, 0, 0, 0.3);
+  transition: box-shadow 0.5s;
+  will-change: transform;
+  transform-origin: center;
+}
+
+.card:hover {
+  box-shadow: 0px 30px 100px -10px rgba(0, 0, 0, 0.4);
 }
 
 .top_sym,
@@ -21,7 +27,7 @@
 }
 
 .mid_sym {
-  font-size: 4rem;
+  font-size: 5rem;
   place-self: center;
   z-index: 5;
 }
