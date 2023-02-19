@@ -1,13 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Lexend&family=Quicksand&display=swap');
 
 :root {
-  all: unset;
-
   --blue: #0960a8;
   --green: #77b910;
   --yellow: #fecc28;
   --red: #d92211;
   --black: #0c0c0c;
+
+  --footer-size: 0.2rem;
 
   font-family: 'Inter', sans-serif;
   font-family: 'Lexend', sans-serif;
@@ -17,5 +17,93 @@
   font-weight: 400;
 
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+}
+
+body {
+  all: unset;
+  background: linear-gradient(45deg, #2f2e32 0%, #080708 100%) no-repeat;
+}
+
+#root {
+  display: grid;
+  grid-template-rows: 100px auto 30px var(--footer-size);
+  height: 100vh;
+  align-content: stretch;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  color: white;
+  gap: 1rem;
+}
+
+header > img {
+  width: 5rem;
+  height: 5rem;
+}
+
+main {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 2rem;
+}
+
+aside {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 6px;
+}
+
+.button_group {
+  display: flex;
+  gap: 6px;
+}
+
+.button_group > button {
+  --button-size: 2rem;
+  width: var(--button-size);
+  height: var(--button-size);
+  background-color: var(--button-color);
+  border-radius: 4px;
+  gap: 6px;
+  color: white;
+}
+
+.art-by {
+  font-size: small;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+footer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+footer > * {
+  background-color: var(--footer-frag-color);
+  width: 100%;
+  height: var(--footer-size);
+}
+
+@media screen and (max-width: 768px) {
+  /* #root {
+    height: max-content;
+  } */
+
+  main {
+    flex-direction: column;
+    gap: 0;
+  }
 }
