@@ -3,6 +3,8 @@ import Card from './components/Card';
 import { specialCards, number } from './utils/cards';
 import Logo from './assets/logo.svg';
 import GH from './assets/gh.svg';
+import Temporary from './components/Temporary';
+import Alert from './components/Card/Alert';
 
 function App() {
   const [color, setColor] = useState('--red');
@@ -21,6 +23,11 @@ function App() {
           <img src={GH} alt="github" />
         </a>
       </header>
+
+      <Temporary time={10_000}>
+        <Alert />
+      </Temporary>
+
       <main style={{ '--card-color': `var(${color})` }}>
         <Card card={card} />
         <aside>

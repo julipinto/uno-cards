@@ -32,6 +32,7 @@ body {
       var(--footer-size) + var(--footer-gap)
     );
   height: 100vh;
+  height: 100svh;
   align-content: stretch;
 }
 
